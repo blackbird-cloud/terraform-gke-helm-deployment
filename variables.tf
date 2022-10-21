@@ -27,3 +27,21 @@ variable "region" {
   type        = string
   description = "Google Region"
 }
+
+variable "chart" {
+  type        = string
+  description = "Chart name, otherwise default helm template will be used"
+  default     = ""
+}
+
+variable "repository" {
+  type        = string
+  description = "Chart repository url, required when chart is not empty"
+  default     = ""
+}
+
+variable "chart_version" {
+  type        = string
+  description = "Chart version, required when chart is not empty"
+  default     = ""
+}
