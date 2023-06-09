@@ -16,7 +16,7 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_deployment"></a> [deployment](#module\_deployment) | blackbird-cloud/deployment/helm | 1.0.1 |
+| <a name="module_deployment"></a> [deployment](#module\_deployment) | blackbird-cloud/deployment/helm | 1.1.0 |
 
 ## Resources
 
@@ -54,4 +54,6 @@
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_deployment"></a> [deployment](#output\_deployment) | The helm release |
