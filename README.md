@@ -1,8 +1,47 @@
+# <Cloud> <Main resource> Terraform module
+A Terraform module which configures your <Cloud> <Main resource>. <Relevant docs>
+
+[![blackbird-logo](https://raw.githubusercontent.com/blackbird-cloud/terraform-module-template/main/.config/logo_simple.png)](https://www.blackbird.cloud)
+
+## Example
+```hcl
+module "helm-release" {
+  source  = "blackbird-cloud/gke-helm-deployment/google"
+  version = "~> 1"
+
+  project      = "my-google-project"
+  region       = "europe-west4-c"
+  cluster_name = "my-gke-cluster-name"
+
+  name             = "my-app"
+  namespace        = "my-app"
+  create_namespace = true
+
+  repository    = "https://prometheus-community.github.io/helm-charts"
+  chart         = "prometheus"
+  chart_version = "23.1.0"
+
+  values = [
+    yamlencode({
+      alertmanager : {
+        enabled : false
+      },
+      prometheus-pushgateway : {
+        enabled : false
+      }
+    })
+  ]
+
+  cleanup_on_fail = true
+  wait            = true
+}
+```
+
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | 4.34.0 |
 | <a name="requirement_helm"></a> [helm](#requirement\_helm) | 2.6.0 |
 
@@ -11,12 +50,6 @@
 | Name | Version |
 |------|---------|
 | <a name="provider_google"></a> [google](#provider\_google) | 4.34.0 |
-
-## Modules
-
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_deployment"></a> [deployment](#module\_deployment) | blackbird-cloud/deployment/helm | 1.1.0 |
 
 ## Resources
 
@@ -57,3 +90,13 @@
 | Name | Description |
 |------|-------------|
 | <a name="output_deployment"></a> [deployment](#output\_deployment) | The helm release |
+
+## About
+
+We are [Blackbird Cloud](https://blackbird.cloud), Amsterdam based cloud consultancy, and cloud management service provider. We help companies build secure, cost efficient, and scale-able solutions.
+
+Checkout our other :point\_right: [terraform modules](https://registry.terraform.io/namespaces/blackbird-cloud)
+
+## Copyright
+
+Copyright © 2017-2023 [Blackbird Cloud](https://www.blackbird.cloud)
