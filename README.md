@@ -1,11 +1,11 @@
-# <Cloud> <Main resource> Terraform module
-A Terraform module which configures your <Cloud> <Main resource>. <Relevant docs>
+# Google Cloud Platform GKE Helm release Terraform module
+A Terraform module which helps you configures Helm release deployed in GKE.
 
 [![blackbird-logo](https://raw.githubusercontent.com/blackbird-cloud/terraform-module-template/main/.config/logo_simple.png)](https://www.blackbird.cloud)
 
 ## Example
 ```hcl
-module "helm-release" {
+module "helm_release" {
   source  = "blackbird-cloud/gke-helm-deployment/google"
   version = "~> 1"
 
