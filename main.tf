@@ -1,6 +1,6 @@
 module "deployment" {
   source  = "blackbird-cloud/deployment/helm"
-  version = "1.2.2"
+  version = "1.2.3"
 
   name        = var.name
   description = var.description
